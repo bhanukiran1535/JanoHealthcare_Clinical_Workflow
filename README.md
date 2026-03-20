@@ -99,7 +99,9 @@ The seed script (`npm run server:seed`) creates:
 
 Run `npm run server:seed` to populate the database with demo data.
 
-## 🎯 Demo & Screenshots
+## 🎯 Demo (ScreenRecording)
+[Demo Drive Link  🔗](https://drive.google.com/file/d/1JKAW1Ht4keQ5bNbk6_rZ2RQEdznnn3lp/view?usp=drive_link)
+https://drive.google.com/file/d/1JKAW1Ht4keQ5bNbk6_rZ2RQEdznnn3lp/view?usp=drive_link
 
 ### Working Demo
 - **Dashboard**: Today's sessions with anomaly indicators
@@ -108,7 +110,6 @@ Run `npm run server:seed` to populate the database with demo data.
 - **Patient Registry**: Search, filter, and view history
 - **Schedule Management**: Select patients and save daily schedules
 
-*Screenshots available in `docs/Images/`*
 
 ## 🔧 Known Limitations & Future Improvements
 
