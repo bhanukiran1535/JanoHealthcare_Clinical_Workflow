@@ -1,40 +1,18 @@
 {
-  "name": "dialysis-dashboard",
+  "name": "dialysis-dashboard-monorepo",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "server:install": "cd server && npm install",
-    "server:dev": "cd server && npm run dev",
-    "server:seed": "cd server && npm run seed",
-    "server:test": "cd server && npm test"
-  },
-  "dependencies": {
-    "@radix-ui/react-slot": "^1.2.4",
-    "@tanstack/react-query": "^5.91.2",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.577.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.5.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.2.2",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "jsdom": "^29.0.0",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3",
-    "vite": "^8.0.1",
-    "vitest": "^4.1.0"
+    "dev": "npm run --workspace=frontend dev",
+    "build": "npm run --workspace=frontend build",
+    "test": "npm run --workspace=frontend test && npm run --workspace=backend test",
+    "server:dev": "npm run --workspace=backend dev",
+    "server:seed": "npm run --workspace=backend seed",
+    "server:test": "npm run --workspace=backend test",
+    "install:all": "npm install"
   }
 }

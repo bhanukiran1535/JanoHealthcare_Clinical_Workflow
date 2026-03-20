@@ -54,6 +54,26 @@ export interface ScheduleResponse {
   patients: ScheduleRow[];
 }
 
+export interface PatientSessionHistoryItem {
+  id: string;
+  patientId: string;
+  unit: string;
+  machineId: string;
+  nurseId?: string;
+  startTime: string;
+  endTime: string | null;
+  preWeightKg: number;
+  postWeightKg?: number;
+  preBP: BloodPressure;
+  postBP?: BloodPressure;
+  notes?: string;
+}
+
+export interface PatientHistoryResponse {
+  patient: Patient;
+  sessions: PatientSessionHistoryItem[];
+}
+
 export interface CreateSessionPayload {
   patientId: string;
   unit: string;
@@ -66,4 +86,39 @@ export interface CreateSessionPayload {
   preBP: BloodPressure;
   postBP?: BloodPressure;
   notes?: string;
+}
+
+export interface CompleteSessionPayload {
+  sessionId: string;
+  endTime: string;
+  postWeightKg: number;
+  postBP: BloodPressure;
+  notes?: string;
+}
+
+export interface CreatePatientPayload {
+  name: string;
+  dob?: string;
+  gender?: 'M' | 'F' | 'O';
+  dryWeightKg: number;
+  unit: string;
+}
+
+export interface PatientsListResponse {
+  patients: Patient[];
+}
+
+export interface SaveSchedulePayload {
+  unit: string;
+  date: string; // YYYY-MM-DD
+  patientIds: string[];
+}
+
+export interface SaveScheduleResponse {
+  schedule: {
+    id: string;
+    unit: string;
+    date: string;
+    patientIds: string[];
+  };
 }
