@@ -7,12 +7,17 @@
     "shared"
   ],
   "scripts": {
+    "postinstall": "npm run --workspace=shared build",
     "dev": "npm run --workspace=frontend dev",
-    "build": "npm run --workspace=frontend build",
+    "dev:all": "concurrently \"npm run server:dev\" \"npm run dev\"",
+    "build": "npm run --workspace=shared build && npm run --workspace=frontend build",
     "test": "npm run --workspace=frontend test && npm run --workspace=backend test",
     "server:dev": "npm run --workspace=backend dev",
     "server:seed": "npm run --workspace=backend seed",
     "server:test": "npm run --workspace=backend test",
     "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

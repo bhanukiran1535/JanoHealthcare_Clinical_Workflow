@@ -29,14 +29,21 @@ A full-stack application for dialysis centers to track patient treatment session
 
 4. **Run Application**
    ```bash
-   # Terminal 1: Backend
-   npm run server:dev
-
-   # Terminal 2: Frontend
-   npm run dev
+   npm run dev:all
    ```
 
+   This starts both the backend server and frontend dev server concurrently.
    Open **http://localhost:5173** to view the dashboard.
+
+## 📜 Available Scripts
+
+- `npm run install:all` - Install all dependencies (same as `npm install`)
+- `npm run dev:all` - Start both frontend and backend servers concurrently
+- `npm run dev` - Start only the frontend dev server
+- `npm run server:dev` - Start only the backend server
+- `npm run server:seed` - Seed the database with demo data
+- `npm run build` - Build the frontend for production
+- `npm run test` - Run tests for both frontend and backend
 
 ## 🏗️ Architecture
 
