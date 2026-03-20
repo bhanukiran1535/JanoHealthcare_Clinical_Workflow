@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import patientRoutes from './routes/patients';
@@ -14,7 +15,16 @@ export function createApp() {
   app.use(express.json({ limit: '1mb' }));
 
   // Health check
-  app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
+  app.get('/api/health', (_req, res) => {
+    const mongoState = mongoose.connection.readyState;
+    const ready = mongoState === 1;
+    res.status(ready ? 200 : 503).json({
+      status: ready ? 'ok' : 'degraded',
+      mongo: ready ? 'connected' : 'disconnected',
+      uptime: process.uptime(),
+      timestamp: new Date().toISOString(),
+    });
+  });
 
   // Routes
   app.use('/api/patients', patientRoutes);
