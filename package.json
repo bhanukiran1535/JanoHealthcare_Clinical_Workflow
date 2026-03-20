@@ -15,7 +15,7 @@
     "server:dev": "npm run --workspace=backend dev",
     "server:seed": "npm run --workspace=backend seed",
     "server:test": "npm run --workspace=backend test",
-    "install:all": "npm install"
+    "install:all": "npm install --ignore-engines"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
